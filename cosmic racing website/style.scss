@@ -4,6 +4,42 @@
 *::before {
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+  line-height: 1.4;
+}
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(+100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-300%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-300%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 a {
   text-decoration: none;
   color: inherit;
@@ -15,20 +51,28 @@ a {
 //7f00fe
 //7f00fd
 body {
-  background-image: linear-gradient(#760be0, #e800fd);
-  background-repeat: no-repeat;
+  //background-image: linear-gradient(#6c0be0, #ba00fd);
+  //background-repeat: no-repeat;
+  background-image: url("assets/background.png");
+  background-color: #6c02d6;
   color: white;
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
 }
+
 .member {
   position: relative;
-  border: #ffffff 2px solid;
-  border-bottom: none;
+  border: #000000 4px solid;
+  border-radius: 20px;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.178);
   flex-direction: column;
   width: 250px;
+}
+.member-title {
+  border-top: #000000 4px solid;
 }
 .flex {
   display: flex;
@@ -38,8 +82,8 @@ body {
   justify-content: center;
 }
 .icon {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   margin: 1rem;
 }
 .flex-column {
@@ -47,6 +91,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: white;
 }
 
 .moto {
@@ -54,9 +99,14 @@ body {
 }
 
 #team-wrapper {
+  position: relative;
   padding-top: 1em;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.14);
+  border-top: 1px solid white;
+  //background-image: url("assets/themedbackgroundflipped.jpg");
+  background-size: cover;
+  background-position: center center;
+  //background-color: rgba(255, 255, 255, 0.14);
   gap: 1em;
   div {
     text-transform: uppercase;
@@ -86,15 +136,17 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  width: 100%;
 }
 .carimg img {
   width: 100%;
   height: auto;
-  padding: 1rem;
+  padding: 2rem;
 }
 .carimg {
   display: flex;
   align-items: center;
+  animation: 1s ease-out 0s 1 slideInFromRight;
 }
 .members {
   flex-direction: column;
@@ -105,8 +157,14 @@ body {
   font-weight: 300;
   text-transform: uppercase;
   font-size: clamp(1.6rem, 2.5vw, 3rem);
-  margin-block: 1rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  p {
+    font-size: clamp(1rem, 1.5vw, 2rem);
+    text-transform: none;
+  }
 }
 .title_name {
   font-weight: 900;
@@ -120,8 +178,8 @@ body {
 
 .topnav {
   display: flex;
-  background-color: rgba(0, 0, 0, 0.233);
-  justify-content: space-around;
+  background-color: rgba(255, 15, 255, 0.466);
+  justify-content: space-between;
 }
 
 .active {
@@ -129,9 +187,44 @@ body {
   color: white;
 }
 
-.topnav a:hover,
-.dropdown:hover .dropbtn {
+.topnav a:hover {
   background-color: rgba(0, 0, 0, 0.315);
+}
+
+.logos {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#f1logo {
+  margin-block: 1rem;
+  width: calc(125px + 1rem);
+}
+.teamlogo {
+  width: 125px;
+  height: auto;
+}
+
+#arrow-container {
+  position: absolute;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  animation: 2s ease-out 0s 1 slideInFromTop;
+}
+#navarrow {
+  width: 35px;
+  height: 25px;
+  margin: 0;
+}
+.icon-wrapper {
+  display: flex;
+  align-content: center;
 }
 @media screen and (min-width: 600px) {
   .flex-column {
@@ -145,17 +238,18 @@ body {
       flex-direction: column;
     }
   }
-  .title {
+  .icon-wrapper {
     display: flex;
+    justify-content: center;
+  }
+  .title {
     height: 50%;
-    flex-direction: column;
-    justify-content: space-around;
     text-align: left;
   }
   .main-body {
     margin: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: column;
   }
   .members {
@@ -164,6 +258,15 @@ body {
   }
   .member {
     margin-block: 1rem;
+  }
+  #nav {
+    border-right: 1px white solid;
+    padding-block: 2rem;
+  }
+  .socialnav {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid white;
   }
 }
 @media screen and (min-width: 1000px) {
@@ -178,5 +281,35 @@ body {
   }
   .carimg {
     width: 65%;
+  }
+}
+@media screen and (max-width: 600px) {
+  #nav {
+    border-bottom: 1px white solid;
+  }
+  .icon-wrapper {
+    display: inline-block;
+  }
+  .socialnav {
+    border-left: 1px white solid;
+    display: flex;
+    align-items: center;
+  }
+  .logos {
+    margin-block: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .icon {
+    width: 25px;
+    height: 25px;
+    margin: 0.5rem;
+  }
+  .teamlogo {
+    width: 70px;
+  }
+  #f1logo {
+    margin: 0;
   }
 }

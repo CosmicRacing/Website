@@ -6,6 +6,88 @@
           box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  line-height: 1.4;
+}
+
+@-webkit-keyframes slideInFromLeft {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes slideInFromRight {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes slideInFromTop {
+  0% {
+    -webkit-transform: translateY(-300%);
+            transform: translateY(-300%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  0% {
+    -webkit-transform: translateY(-300%);
+            transform: translateY(-300%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  0% {
+    -webkit-transform: translateY(-300%);
+            transform: translateY(-300%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -17,25 +99,31 @@ a {
 }
 
 body {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#760be0), to(#e800fd));
-  background-image: linear-gradient(#760be0, #e800fd);
-  background-repeat: no-repeat;
+  background-image: url("assets/background.png");
+  background-color: #6c02d6;
   color: white;
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
 }
 
 .member {
   position: relative;
-  border: #ffffff 2px solid;
-  border-bottom: none;
+  border: #000000 4px solid;
+  border-radius: 20px;
+  -webkit-box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.178);
+          box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.178);
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   width: 250px;
+}
+
+.member-title {
+  border-top: #000000 4px solid;
 }
 
 .flex {
@@ -51,8 +139,8 @@ body {
 }
 
 .icon {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   margin: 1rem;
 }
 
@@ -68,6 +156,7 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  color: white;
 }
 
 .moto {
@@ -75,12 +164,15 @@ body {
 }
 
 #team-wrapper {
+  position: relative;
   padding-top: 1em;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.14);
+  border-top: 1px solid white;
+  background-size: cover;
+  background-position: center center;
   gap: 1em;
 }
 
@@ -124,12 +216,13 @@ body {
           flex-direction: column;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  width: 100%;
 }
 
 .carimg img {
   width: 100%;
   height: auto;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .carimg {
@@ -139,6 +232,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-animation: 1s ease-out 0s 1 slideInFromRight;
+          animation: 1s ease-out 0s 1 slideInFromRight;
 }
 
 .members {
@@ -154,8 +249,22 @@ body {
   font-weight: 300;
   text-transform: uppercase;
   font-size: clamp(1.6rem, 2.5vw, 3rem);
-  margin-block: 1rem;
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.title p {
+  font-size: clamp(1rem, 1.5vw, 2rem);
+  text-transform: none;
 }
 
 .title_name {
@@ -172,9 +281,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: rgba(0, 0, 0, 0.233);
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  background-color: rgba(255, 15, 255, 0.466);
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .active {
@@ -182,9 +292,63 @@ body {
   color: white;
 }
 
-.topnav a:hover,
-.dropdown:hover .dropbtn {
+.topnav a:hover {
   background-color: rgba(0, 0, 0, 0.315);
+}
+
+.logos {
+  margin: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#f1logo {
+  margin-block: 1rem;
+  width: calc(125px + 1rem);
+}
+
+.teamlogo {
+  width: 125px;
+  height: auto;
+}
+
+#arrow-container {
+  position: absolute;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-animation: 2s ease-out 0s 1 slideInFromTop;
+          animation: 2s ease-out 0s 1 slideInFromTop;
+}
+
+#navarrow {
+  width: 35px;
+  height: 25px;
+  margin: 0;
+}
+
+.icon-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 @media screen and (min-width: 600px) {
@@ -211,17 +375,16 @@ body {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .title {
+  .icon-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .title {
     height: 50%;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
     text-align: left;
   }
   .main-body {
@@ -229,9 +392,8 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -247,6 +409,20 @@ body {
   }
   .member {
     margin-block: 1rem;
+  }
+  #nav {
+    border-right: 1px white solid;
+    padding-block: 2rem;
+  }
+  .socialnav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    border-top: 1px solid white;
   }
 }
 
@@ -269,6 +445,48 @@ body {
   }
   .carimg {
     width: 65%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #nav {
+    border-bottom: 1px white solid;
+  }
+  .icon-wrapper {
+    display: inline-block;
+  }
+  .socialnav {
+    border-left: 1px white solid;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .logos {
+    margin-block: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .icon {
+    width: 25px;
+    height: 25px;
+    margin: 0.5rem;
+  }
+  .teamlogo {
+    width: 70px;
+  }
+  #f1logo {
+    margin: 0;
   }
 }
 /*# sourceMappingURL=style.css.map */
