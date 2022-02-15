@@ -194,6 +194,7 @@ body {
   background-size: cover;
   background-position: center center;
   background-color: #c651c66e;
+  min-height: 100vh;
   gap: 1em;
 }
 
