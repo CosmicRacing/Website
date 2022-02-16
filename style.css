@@ -185,7 +185,7 @@ body {
 
 #team-wrapper {
   position: relative;
-  padding-top: 1em;
+  padding-inline: 1em;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
