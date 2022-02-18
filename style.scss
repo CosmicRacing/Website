@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 html {
-  scroll-behavior: smooth;
+  //scroll-behavior: smooth;
   line-height: 1.4;
 }
 /* Works on Firefox */
@@ -124,9 +124,6 @@ body {
   padding-top: 1em;
   flex-direction: column;
   border-top: 1px solid white;
-  //background-image: url("assets/themedbackgroundflipped.jpg");
-  background-size: cover;
-  background-position: center center;
   background-color: #c651c66e;
   min-height: 100vh;
   gap: 1em;
@@ -196,7 +193,7 @@ body {
 
 .title_name,
 #team-title {
-  font-size: clamp(1.3rem, calc(3vw + 2vh), 6rem);
+  font-size: clamp(2rem, calc(3vw + 2vh), 6rem);
 }
 
 .topnav {
@@ -239,6 +236,10 @@ body {
   display: flex;
   justify-content: center;
   animation: 2s ease-out 0s 1 slideInFromTop;
+  width: min-content;
+}
+#arrow-container:hover {
+  cursor: pointer;
 }
 #navarrow {
   width: 35px;
@@ -289,15 +290,10 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-  } /*
-  .socialnav::before {
-    content: "";
-    border: 1px solid white;
-    width: 50%;
-    right: 75%;
-    left: 25%;
-    position: absolute;
-  }*/
+  }
+  .hidden-medium {
+    display: none;
+  }
 }
 @media screen and (min-width: 1000px) {
   .main-body {
@@ -344,5 +340,21 @@ body {
   }
   .title {
     height: 50%;
+  }
+  .hidden-small {
+    display: none;
+  }
+  #team-title {
+    margin-bottom: 10%;
+  }
+  .members {
+    align-items: center;
+    padding-inline: 0;
+    margin: 0;
+    flex-direction: row;
+  }
+  #loadRightMember:hover,
+  #loadLeftMember:hover {
+    cursor: pointer;
   }
 }

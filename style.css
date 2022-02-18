@@ -7,7 +7,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   line-height: 1.4;
 }
 
@@ -185,14 +184,12 @@ body {
 
 #team-wrapper {
   position: relative;
-  padding-inline: 1em;
+  padding-top: 1em;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   border-top: 1px solid white;
-  background-size: cover;
-  background-position: center center;
   background-color: #c651c66e;
   min-height: 100vh;
   gap: 1em;
@@ -297,7 +294,7 @@ body {
 
 .title_name,
 #team-title {
-  font-size: clamp(1.3rem, calc(3vw + 2vh), 6rem);
+  font-size: clamp(2rem, calc(3vw + 2vh), 6rem);
 }
 
 .topnav {
@@ -358,6 +355,13 @@ body {
           justify-content: center;
   -webkit-animation: 2s ease-out 0s 1 slideInFromTop;
           animation: 2s ease-out 0s 1 slideInFromTop;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+
+#arrow-container:hover {
+  cursor: pointer;
 }
 
 #navarrow {
@@ -446,15 +450,9 @@ body {
             flex-direction: column;
     position: relative;
   }
-  /*
-  .socialnav::before {
-    content: "";
-    border: 1px solid white;
-    width: 50%;
-    right: 75%;
-    left: 25%;
-    position: absolute;
-  }*/
+  .hidden-medium {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1000px) {
@@ -521,6 +519,27 @@ body {
   }
   .title {
     height: 50%;
+  }
+  .hidden-small {
+    display: none;
+  }
+  #team-title {
+    margin-bottom: 10%;
+  }
+  .members {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-inline: 0;
+    margin: 0;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  #loadRightMember:hover,
+  #loadLeftMember:hover {
+    cursor: pointer;
   }
 }
 /*# sourceMappingURL=style.css.map */
