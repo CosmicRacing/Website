@@ -3,7 +3,7 @@ let members = ["member-0","member-1","member-2","member-3","member-4","member-5"
 timeOfLastMemberUpdate = getCurrentTime();
 let active = false;
 let automaticChange;
-let changeInterval = 10000;
+let changeInterval = 5000;
 
 for (let i = 1; i < members.length; i++) {
     document.getElementById(members[i]).classList.add("hidden-small");
