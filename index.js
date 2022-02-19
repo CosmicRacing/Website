@@ -22,10 +22,12 @@ function moveToTeamWrapper(){
 }
 
 function unloadCurrentMember(){
+    console.log("1   " + window.screen.width);
     timeOfLastMemberUpdate = getCurrentTime();
     document.getElementById(members[currentMember]).classList.add("hidden-small");
 }
 function loadCurrentMember(){
+    console.log("2   " + window.screen.availWidth);
     if(window.screen.width <= 600){
         document.getElementById(members[currentMember]).classList.remove("hidden-small");
     }
