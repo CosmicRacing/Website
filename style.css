@@ -255,7 +255,8 @@ body {
   font-size: 1.1rem;
   overflow-wrap: break-word;
   inline-size: 200px;
-  margin-block: 1em;
+  margin-bottom: 1em;
+  margin-top: 1em;
   height: 50px;
   padding: 0.5em;
   letter-spacing: 0.1em;
@@ -385,7 +386,8 @@ body {
 }
 
 #f1logo {
-  margin-block: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   width: calc(125px + 1rem);
 }
 
@@ -457,7 +459,8 @@ body {
 }
 
 .package-text li {
-  margin-block: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 1rem;
 }
 
 .package-type {
@@ -543,11 +546,13 @@ body {
   }
   .member,
   .section-item {
-    margin-block: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
   #nav {
     border-right: 1px white solid;
-    padding-block: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
   .socialnav {
     display: -webkit-box;
@@ -614,7 +619,8 @@ body {
             align-items: center;
   }
   .logos {
-    margin-block: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -652,7 +658,8 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    padding-inline: 0;
+    padding-right: 0;
+    padding-left: 0;
     margin: 0;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
