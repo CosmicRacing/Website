@@ -1,9 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;900&display=swap");
 *,
 *::after,
 *::before {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -107,6 +112,41 @@ html {
   }
 }
 
+@-webkit-keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    -webkit-transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-20px);
+  }
+  60% {
+    -webkit-transform: translateY(-10px);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  60% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -129,7 +169,8 @@ body {
   overflow-x: hidden;
 }
 
-.member {
+.member,
+.section-item {
   position: relative;
   border: #fff 4px solid;
   border-radius: 20px;
@@ -140,6 +181,7 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 250px;
+  overflow: hidden;
 }
 
 .member-title {
@@ -183,7 +225,8 @@ body {
   margin-top: 1em;
 }
 
-#team-wrapper {
+#team-wrapper,
+.section-wrapper {
   position: relative;
   padding-top: 1em;
   -webkit-box-orient: vertical;
@@ -196,15 +239,18 @@ body {
   gap: 1em;
 }
 
-#team-wrapper div {
+#team-wrapper div,
+.section-wrapper div {
   text-transform: uppercase;
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 900;
   text-align: center;
 }
 
 #team-wrapper .member-title,
-#team-wrapper .member-name {
+#team-wrapper .member-name,
+.section-wrapper .member-title,
+.section-wrapper .member-name {
   font-size: 1.1rem;
   overflow-wrap: break-word;
   inline-size: 200px;
@@ -213,6 +259,10 @@ body {
   padding: 0.5em;
   letter-spacing: 0.1em;
   width: 100%;
+}
+
+.member-image {
+  margin-top: 0.5rem;
 }
 
 .main-body-image {
@@ -237,7 +287,7 @@ body {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   width: 100%;
-  background-color: #c435c442;
+  background-color: #441244a3;
 }
 
 .carimg img {
@@ -257,7 +307,8 @@ body {
           animation: 1s ease-out 0s 1 slideInFromRight;
 }
 
-.members {
+.members,
+.section-container {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -266,10 +317,10 @@ body {
 }
 
 .title {
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
   text-transform: uppercase;
-  font-size: clamp(1rem, calc(1.5vw + 1vh), 3rem);
+  font-size: clamp(2rem, calc(1.5vw + 1vh), 3rem);
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -294,7 +345,8 @@ body {
 }
 
 .title_name,
-#team-title {
+#team-title,
+.section-title {
   font-size: clamp(2rem, calc(3vw + 2vh), 6rem);
 }
 
@@ -379,6 +431,65 @@ body {
       align-content: center;
 }
 
+#package-wrapper {
+  background-color: #441244a3;
+}
+
+.package {
+  min-height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  width: 350px;
+}
+
+.package-type,
+.package-details {
+  text-align: left !important;
+}
+
+.package-text li {
+  margin-block: 0.5em;
+}
+
+.package-type {
+  font-size: clamp(1rem, calc(2 * (3vw + 2vh)), 2rem) !important;
+}
+
+.package-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.package-icon {
+  width: 75px;
+  height: 75px;
+  margin: 1rem;
+}
+
+.package-details {
+  text-transform: none !important;
+  font-size: clamp(0.75rem, calc(3vw + 2vh), 1.5rem) !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 300 !important;
+}
+
+.package-details ul {
+  margin-left: 1rem;
+}
+
 @media screen and (min-width: 600px) {
   .flex-column {
     display: -webkit-box;
@@ -414,19 +525,14 @@ body {
   .title {
     text-align: left;
   }
-  .main-body {
+  /*.main-body {
     margin: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
-  .members {
+    justify-content: space-around;
+    flex-direction: row;
+  }*/
+  .members,
+  .section-container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -434,7 +540,8 @@ body {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-  .member {
+  .member,
+  .section-item {
     margin-block: 1rem;
   }
   #nav {
@@ -453,6 +560,17 @@ body {
   }
   .hidden-medium {
     display: none;
+  }
+  #package-3 {
+    width: 100%;
+  }
+  #package-container {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    max-width: 65%;
+  }
+  #package-wrapper {
+    gap: 5vh;
   }
 }
 
@@ -524,10 +642,12 @@ body {
   .hidden-small {
     display: none;
   }
-  #team-title {
+  #team-title,
+  .section-title {
     margin-bottom: 10%;
   }
-  .members {
+  .members,
+  .section-container {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -542,12 +662,22 @@ body {
   #loadLeftMember:hover {
     cursor: pointer;
   }
+  .package {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media screen and (max-width: 1700px) {
+  #package-3 {
+    width: 350px;
+  }
 }
 
 @media screen and (max-width: 3263px) {
   body {
     background-image: url("assets/background.jpg");
-    background-position: center center;
   }
 }
 /*# sourceMappingURL=style.css.map */
