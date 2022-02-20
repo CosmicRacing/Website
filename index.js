@@ -22,12 +22,10 @@ function moveToTeamWrapper(){
 }
 
 function unloadCurrentMember(){
-    console.log("1   " + window.screen.width);
     timeOfLastMemberUpdate = getCurrentTime();
     document.getElementById(members[currentMember]).classList.add("hidden-small");
 }
 function loadCurrentMember(){
-    console.log("2   " + window.screen.availWidth);
     if(window.screen.width <= 600){
         document.getElementById(members[currentMember]).classList.remove("hidden-small");
     }
@@ -78,22 +76,25 @@ window.onresize = function(event){
     }
 }
 
-
 let touchstartX = 0
 let touchendX = 0
 
-const memberCard = document.getElementById('member-container')
+const memberCard = document.getElementById('member-container');
 
 function handleGesture() {
-  if (touchendX < touchstartX) alert('swiped left!')
-  if (touchendX > touchstartX) alert('swiped right!')
+  if (touchendX < touchstartX){
+    loadLeftMember();
+  } 
+  if (touchendX > touchstartX) {
+    loadRightMember();
+  }
 }
 
-slider.addEventListener('touchstart', e => {
+memberCard.addEventListener('touchstart', e => {
   touchstartX = e.changedTouches[0].screenX
 })
 
-slider.addEventListener('touchend', e => {
+memberCard.addEventListener('touchend', e => {
   touchendX = e.changedTouches[0].screenX
   handleGesture()
 })
