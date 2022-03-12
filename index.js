@@ -1,9 +1,14 @@
 let currentMember = 0;
+let currentPackage = 0;
 let members = ["member-0","member-1","member-2","member-3","member-4","member-5","member-6"];
+let packages = ["package-0","package-1","package-2","package-3"];
 timeOfLastMemberUpdate = getCurrentTime();
+timeOfLastPackageUpdate = getCurrentTime();
 let active = false;
 let automaticChange;
-let changeInterval = 5000;
+let changeInterval = 3000;
+let checkInterval = 200;
+
 
 for (let i = 1; i < members.length; i++) {
     document.getElementById(members[i]).classList.add("hidden-small");
@@ -52,7 +57,7 @@ function loadRightMember(){
 
 function changeAutomaticallyMember(){
     let timeSinceLastUpdate = getCurrentTime() - timeOfLastMemberUpdate;
-    if ( timeSinceLastUpdate> 1000){
+    if ( timeSinceLastUpdate >= changeInterval){
         loadRightMember();
     }
 }
@@ -60,19 +65,23 @@ function changeAutomaticallyMember(){
 window.onload = function(event){
     if(window.screen.width <= 600 && active == false){
         active = true;
-        automaticChange = setInterval(changeAutomaticallyMember, changeInterval)
+        automaticChangeMember = setInterval(changeAutomaticallyMember, checkInterval)
+        automaticChangePackage = setInterval(changeAutomaticallyPackage, checkInterval)
     }else if (active == true){
         active = false;
-        clearInterval(automaticChange);
+        clearInterval(automaticChangeMember);
+        clearInterval(automaticChangePackage);
     }
 }
 window.onresize = function(event){
     if(window.screen.width <= 600 && active == false){
         active = true;
-        automaticChange =setInterval(changeAutomaticallyMember, changeInterval)
-    }else if (active == true && window.screen.width > 600){
+        automaticChangeMember = setInterval(changeAutomaticallyMember, checkInterval)
+        automaticChangePackage = setInterval(changeAutomaticallyPackage, checkInterval)
+    }else if (active == true){
         active = false;
-        clearInterval(automaticChange);
+        clearInterval(automaticChangeMember);
+        clearInterval(automaticChangePackage);
     }
 }
 
@@ -98,3 +107,40 @@ memberCard.addEventListener('touchend', e => {
   touchendX = e.changedTouches[0].screenX
   handleGesture()
 })
+
+
+function unloadCurrentPackage(){
+    timeOfLastPackageUpdate = getCurrentTime();
+    document.getElementById(packages[currentPackage]).classList.add("hidden-small");
+}
+function loadCurrentPackage(){
+    if(window.screen.width <= 600){
+        document.getElementById(packages[currentPackage]).classList.remove("hidden-small");
+    }
+}
+
+function loadLeftPackage(){
+    unloadCurrentPackage();
+    currentPackage -=1;
+    if (currentPackage < 0){
+        currentPackage = 3;
+    }
+    loadCurrentPackage();
+
+}
+
+function loadRightPackage(){
+    unloadCurrentPackage();
+    currentPackage +=1;
+    if (currentPackage > 3){
+        currentPackage = 0;
+    }
+    loadCurrentPackage();
+}
+
+function changeAutomaticallyPackage(){
+    let timeSinceLastUpdate = getCurrentTime() - timeOfLastPackageUpdate;
+    if ( timeSinceLastUpdate >= changeInterval){
+        loadRightPackage();
+    }
+}

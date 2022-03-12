@@ -674,13 +674,27 @@ body {
             flex-direction: row;
   }
   #loadRightMember:hover,
-  #loadLeftMember:hover {
+  #loadLeftMember:hover,
+  #loadRightPackage:hover,
+  #loadLeftPackage:hover {
     cursor: pointer;
   }
   .package {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+  #package-wrapper {
+    position: relative;
+  }
+  #package-title {
+    position: absolute;
+    top: 15%;
+    left: 0;
+    right: 0;
+  }
+  #package-3 .package-details ul {
+    list-style-type: none;
   }
 }
 
