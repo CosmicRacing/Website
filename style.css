@@ -493,6 +493,34 @@ body {
   margin-left: 1rem;
 }
 
+.footer {
+  background-color: rgba(255, 15, 255, 0.467);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2.5%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1em;
+}
+
+.footer .footer-item {
+  padding: 0.5em;
+}
+
+.footer .footer-text {
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
+.footer .footer-text:hover {
+  color: #e2e2e2;
+}
+
 @media screen and (min-width: 600px) {
   .flex-column {
     display: -webkit-box;
@@ -689,12 +717,13 @@ body {
   }
   #package-title {
     position: absolute;
-    top: 15%;
+    top: 5%;
     left: 0;
     right: 0;
   }
   #package-3 .package-details ul {
     list-style-type: none;
+    margin-left: 0;
   }
 }
 
