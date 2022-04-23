@@ -72,6 +72,8 @@ window.onload = function(event){
         clearInterval(automaticChangeMember);
         clearInterval(automaticChangePackage);
     }
+    tidyPackages();
+
 }
 window.onresize = function(event){
     if(window.screen.width <= 600 && active == false){
@@ -83,6 +85,19 @@ window.onresize = function(event){
         clearInterval(automaticChangeMember);
         clearInterval(automaticChangePackage);
     }
+    tidyPackages();
+}
+
+let tidy = false;
+function tidyPackages(){
+    if (document.getElementById("package-2").offsetTop != document.getElementById("package-0").offsetTop){
+        document.getElementById("package-3").style.width = "350px";
+        tidy = true;
+    }else if (tidy == true){
+        document.getElementById("package-3").style.width = "100%";
+        tidy = false
+    }
+    
 }
 
 let touchstartX = 0
@@ -144,3 +159,4 @@ function changeAutomaticallyPackage(){
         loadRightPackage();
     }
 }
+
