@@ -1,5 +1,5 @@
-h1 {
-  font-size: Clump(15px, 10vw, 50px);
+h1, h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
   text-align: center;
   margin-inline: 10px;
   color: white;
@@ -10,6 +10,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 100vw;
   height: 100vh;
   -webkit-box-pack: center;
