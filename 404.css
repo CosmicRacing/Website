@@ -1,0 +1,25 @@
+h1 {
+  font-size: Clump(15px, 10vw, 50px);
+  text-align: center;
+  margin-inline: 10px;
+  color: white;
+}
+
+body {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#bf7ade), color-stop(#b270d6), color-stop(#a666ce), color-stop(#995cc7), color-stop(#8c53bf), color-stop(#814dba), color-stop(#7648b5), color-stop(#6b42b0), color-stop(#5f3fac), color-stop(#523ba8), color-stop(#4438a3), to(#35359f));
+  background-image: linear-gradient(to right top, #bf7ade, #b270d6, #a666ce, #995cc7, #8c53bf, #814dba, #7648b5, #6b42b0, #5f3fac, #523ba8, #4438a3, #35359f);
+  overflow: hidden;
+}
+/*# sourceMappingURL=404.css.map */
